@@ -27,8 +27,14 @@ public sealed class PresApp.MainWindow: Adw.ApplicationWindow {
 
     uint slide_num = 0;
     string[] slides = {
-        "Какой язык может выбрать разработчик?",
-        "C#",
+        "Что такое GIR?",
+        "Что такое Vala?",
+        "Да-да, это пришлось бы писать руками…",
+        "Особенности Vala",
+        "Совместимость Vala с C, VAPI",
+        "Что я могу написать на Vala?",
+        "Проекты на Vala",
+        "И даже эта презентация частично на Vala"
     };
 
     const ActionEntry[] ACTION_ENTRIES = {
@@ -45,6 +51,19 @@ public sealed class PresApp.MainWindow: Adw.ApplicationWindow {
         label.set_markup ("<span font=\"36\"><b>Какой язык может выбрать разработчик?</b></span>");
 
         next_button.clicked.connect (on_next_button_clicked);
+        previous_button.clicked.connect (on_previous_button_clicked);
+    }
+
+    void on_previous_button_clicked () {
+        slide_num--;
+
+        if (slide_num < 0) {
+            slide_num = slides.length - 1;
+        };
+
+        previous_button.visible = slide_num > 0;
+
+        label.set_markup ("<span font=\"36\"><b>%s</b></span>".printf (slides[slide_num]));
     }
 
     void on_next_button_clicked () {
@@ -54,9 +73,7 @@ public sealed class PresApp.MainWindow: Adw.ApplicationWindow {
             slide_num = 0;
         };
 
-        if (slide_num > 0) {
-            previous_button.visible = true;
-        }
+        previous_button.visible = slide_num > 0;
 
         label.set_markup ("<span font=\"36\"><b>%s</b></span>".printf (slides[slide_num]));
     }
