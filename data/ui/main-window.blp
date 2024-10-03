@@ -1,0 +1,92 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PresAppMainWindow : Adw.ApplicationWindow {
+  default-width: 1760;
+  default-height: 990;
+  width-request: 360;
+  height-request: 294;
+
+  content: Adw.ToolbarView {
+    top-bar-style: raised;
+
+    [top]
+    Adw.HeaderBar {
+      show-end-title-buttons: false;
+      show-back-button: false;
+
+      [start]
+      Button previous_button {
+        styles [
+          "flat"
+        ]
+
+        visible: false;
+
+        Image {
+          margin-bottom: 6;
+          margin-top: 6;
+          margin-start: 6;
+          margin-end: 6;
+
+          icon-name: "go-previous-symbolic";
+          pixel-size: 32;
+        }
+      }
+
+      [end]
+      MenuButton {
+        styles [
+          "flat"
+        ]
+
+        menu-model: primary_menu;
+
+        Image {
+          margin-bottom: 6;
+          margin-top: 6;
+          margin-start: 6;
+          margin-end: 6;
+
+          icon-name: "open-menu-symbolic";
+          pixel-size: 32;
+        }
+      }
+
+      title-widget: Label label {
+      };
+    }
+
+    [bottom]
+    Button next_button {
+      styles [
+        "flat"
+      ]
+
+      margin-bottom: 6;
+      margin-top: 6;
+      margin-start: 6;
+      margin-end: 6;
+      hexpand: true;
+      halign: end;
+      valign: center;
+
+      Image {
+        margin-bottom: 6;
+        margin-top: 6;
+        margin-start: 6;
+        margin-end: 6;
+
+        icon-name: "go-next-symbolic";
+        pixel-size: 32;
+      }
+    }
+  };
+}
+
+menu primary_menu {
+  section {
+    item (_("_About"), "win.about")
+    item (_("_Quit"), "app.quit")
+  }
+}
