@@ -1,11 +1,9 @@
-# Шаблон приложения на языке Vala
-
-### Не клонируйте репозиторий!
-Просто загрузите его как архив или используйте как шаблон при создании новых репозиториев.
-
-```
-cd vala-application-template
-sh setup-space.sh io.github.SuperDev.ExampleApp
-```
-
-[Как правильно выбрать ID своего приложения](https://developer.gnome.org/documentation/tutorials/application-id.html)
+# Упомянутые проекты
+- Foldy: https://github.com/alt-gnome-team/Foldy
+- Cassette: https://gitlab.gnome.org/Rirusha/Cassette
+- Vala linter: https://github.com/vala-lang/vala-lint
+- Vala Language Server: https://github.com/vala-lang/vala-language-server
+- GNOME Clocks: https://github.com/GNOME/gnome-clocks
+- elementary: https://github.com/elementary
+- Vessel: https://github.com/SpikedPaladin/Vessel
+- TelegramGLib: https://github.com/SpikedPaladin/TelegramGLib
